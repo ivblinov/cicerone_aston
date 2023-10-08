@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.cicerone_aston.databinding.FragmentABinding
+import com.github.terrakok.cicerone.Router
 
 class FragmentA : Fragment() {
-
     private var _binding: FragmentABinding? = null
     private val binding get() = _binding!!
 
@@ -20,8 +20,20 @@ class FragmentA : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.goToFragmentB.setOnClickListener {
+            App.instance.router.navigateTo(AndroidScreens().fragmentB())
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    companion object {
+        fun newInstance() = FragmentA()
     }
 }

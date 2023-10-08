@@ -2,7 +2,7 @@ package com.example.cicerone_aston
 
 import android.app.Application
 import com.github.terrakok.cicerone.Cicerone
-import com.github.terrakok.cicerone.Router
+
 
 class App : Application() {
     private val cicerone = Cicerone.create()
@@ -11,11 +11,10 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        INSTANCE = this
+        instance = this
     }
-
     companion object {
-        internal lateinit var INSTANCE: App
+        lateinit var instance: App
             private set
     }
 }

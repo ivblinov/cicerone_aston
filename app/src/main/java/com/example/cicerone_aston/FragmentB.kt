@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import com.example.cicerone_aston.databinding.FragmentBBinding
 
 class FragmentB : Fragment() {
-
     private var _binding: FragmentBBinding? = null
     private val binding get() = _binding!!
 
@@ -20,8 +19,24 @@ class FragmentB : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.goToFragmentC.setOnClickListener {
+            App.instance.router.navigateTo(AndroidScreens().fragmentC())
+        }
+
+        binding.back.setOnClickListener {
+            App.instance.router.exit()
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    companion object {
+        fun newInstance() = FragmentB()
     }
 }
