@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        App.instance.router.newRootScreen(AndroidScreens().fragmentA())
+        App.instance.router.newRootScreen(Screens.fragmentA())
     }
 
     override fun onResumeFragments() {

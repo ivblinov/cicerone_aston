@@ -1,12 +1,14 @@
 package com.example.cicerone_aston
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.cicerone_aston.databinding.FragmentBBinding
 
+private const val TAG = "MyLog"
 class FragmentB : Fragment() {
     private var _binding: FragmentBBinding? = null
     private val binding get() = _binding!!
@@ -14,7 +16,7 @@ class FragmentB : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentBBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -22,8 +24,12 @@ class FragmentB : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val result = "Hello Fragment C"
+//        App.instance.router.sendResult(RESULT_KEY, result)  // ??????????????????????????????
+
+
         binding.goToFragmentC.setOnClickListener {
-            App.instance.router.navigateTo(AndroidScreens().fragmentC())
+            App.instance.router.navigateTo(Screens.fragmentC(RESULT_KEY))
         }
 
         binding.back.setOnClickListener {
@@ -37,6 +43,7 @@ class FragmentB : Fragment() {
     }
 
     companion object {
+        private const val RESULT_KEY = "result"
         fun newInstance() = FragmentB()
     }
 }

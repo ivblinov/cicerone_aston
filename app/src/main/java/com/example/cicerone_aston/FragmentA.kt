@@ -24,7 +24,7 @@ class FragmentA : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.goToFragmentB.setOnClickListener {
-            App.instance.router.navigateTo(AndroidScreens().fragmentB())
+            App.instance.router.navigateTo(Screens.fragmentB())
         }
     }
 
