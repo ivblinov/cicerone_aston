@@ -6,6 +6,6 @@ import com.github.terrakok.cicerone.androidx.FragmentScreen
 object Screens {
     fun fragmentA(): Screen = FragmentScreen { FragmentA.newInstance() }
     fun fragmentB(): Screen = FragmentScreen { FragmentB.newInstance() }
-    fun fragmentC(resultKey: String): Screen = FragmentScreen { FragmentC.newInstance(resultKey) }
+    fun fragmentC(argument: String): Screen = FragmentScreen { FragmentC.newInstance(argument) }
     fun fragmentD(): Screen = FragmentScreen { FragmentD.newInstance() }
 }
